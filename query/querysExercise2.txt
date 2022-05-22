@@ -1,0 +1,51 @@
+1)
+select count(*) from employees where salary >= 8000
+
+select count(*) from employees where salary BETWEEN 3500 and 7999
+
+select count(*) from employees where salary < 3500
+
+
+2)
+
+select d.DEPARTMENT_ID, CASE WHEN  e.salary >= 8000 then "SEGMENT C" 
+	WHEN e.salary BETWEEN 3500 and 7999 then "SEGMENT B"
+	ELSE "SEGMENT A"
+	END AS SALARY_GROUP,count(*) as CANTIDAD
+from departments d LEFT JOIN employees e ON d.DEPARTMENT_ID = e.DEPARTMENT_ID
+group by 1,2
+
+
+3)
+select  MAX(SALARY) AS MAX_SALARY, EMPLOYEE_ID, DEPARTMENT_ID, JOB_ID 
+from employees
+group by DEPARTMENT_ID
+
+
+
+
+4) 
+select e.* 
+from employees e
+INNER JOIN jobs j ON e.JOB_ID = j.JOB_ID AND j.JOB_TITLE in (select JOB_TITLE from jobs WHERE LOCATE('Manager', JOB_TITLE) > 0)
+INNER JOIN job_history j_h ON (j.JOB_ID = j_h.job_id AND j_h.EMPLOYEE_ID in (select EMPLOYEE_ID from job_history where START_DATE < DATE_SUB(CURRENT_DATE , INTERVAL 15 YEAR)))
+
+5)
+
+select AVG(e.SALARY) AS AVG_SALARY, e.DEPARTMENT_ID from employees e where e.DEPARTMENT_ID in (select DEPARTMENT_ID from employees group by DEPARTMENT_ID having count(*) > 15) group by DEPARTMENT_ID
+
+6)
+
+Consideraciones: considero todos los empleados con y sin antiguedad. En caso de querer solo los empleados que tienen antiguedad se debe cambiar la siguiente sentencia en la query: left join job_history j_h ON e.EMPLOYEE_ID = j_h.EMPLOYEE_ID  -> inner join job_history j_h ON e.EMPLOYEE_ID = j_h.EMPLOYEE_ID
+select c.*, 
+        if ( avg(TIMESTAMPDIFF(YEAR, j_h.START_DATE, j_h.END_DATE)) is null, 0, avg(TIMESTAMPDIFF(YEAR, j_h.START_DATE, j_h.END_DATE))) AS ANTIQUITY_AVG_YEARS,
+        if(MAX(e.SALARY) is null, 0, MAX(e.SALARY)) AS MAX_SALARY,
+        if(MIN(e.SALARY) is null, 0, MIN(e.SALARY)) AS MIN_SALARY,
+        count(e.EMPLOYEE_ID) AS EMPLOYEE_QUANTITY
+     from countries c 
+	left join locations l ON c.COUNTRY_ID = l.COUNTRY_ID
+	left join departments d ON l.LOCATION_ID = d.LOCATION_ID
+	left join employees e ON e.DEPARTMENT_ID = d.DEPARTMENT_ID
+	left join job_history j_h ON e.EMPLOYEE_ID = j_h.EMPLOYEE_ID 
+	group by c.COUNTRY_ID
+	order by ANTIQUITY_AVG_YEARS desc
