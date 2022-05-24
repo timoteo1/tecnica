@@ -1,9 +1,7 @@
 package myHotel.tecnica.controller;
 
 import java.util.List;
-import java.util.logging.Logger;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,17 +24,18 @@ import myHotel.tecnica.dto.EmployeesMaxSalaryDto;
 @RequestMapping("/api")
 public class MyHotelController {
 
-    Logger logger = Logger.getLogger("MtHotelController");
-    
-    @Autowired
     EmployeesDao employeesDao;
-
-    @Autowired
     DepartmentsSalaryDao departmentsSalary;
-    
-    @Autowired
     CountriesDao countriesDao;
     
+    public MyHotelController(EmployeesDao employeesDao, DepartmentsSalaryDao departmentsSalary,
+            CountriesDao countriesDao) {
+        super();
+        this.employeesDao = employeesDao;
+        this.departmentsSalary = departmentsSalary;
+        this.countriesDao = countriesDao;
+    }
+
     @GetMapping("/employees/salary/{segment}")
     private CountEmployeesDto getEmployeesHighSalary(@PathVariable String segment){
         try {
@@ -48,7 +47,6 @@ public class MyHotelController {
             case "C":                
                 return new CountEmployeesDto(employeesDao.getEmployeesBySalaryHigh());
             default:
-                logger.warning("Se ingreso un tipo de salario no valido");
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
            }
         }

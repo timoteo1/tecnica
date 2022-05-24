@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "00385c28-1ecd-412b-98b3-41939489a70c",
+		"name": "MyHotel-Tecnical",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getSalaryType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:9515/api/employees/salary/{segment}",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "9515",
+					"path": [
+						"api",
+						"employees",
+						"salary",
+						"{segment}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDepartmentsGroupBySalary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:9515/api/departments/salary",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "9515",
+					"path": [
+						"api",
+						"departments",
+						"salary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmployeesMaxSalary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:9515/api/departments/employees/maxsalary",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "9515",
+					"path": [
+						"api",
+						"departments",
+						"employees",
+						"maxsalary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmployeesMoreExperience",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:9515/api/employees/moreexperience",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "9515",
+					"path": [
+						"api",
+						"employees",
+						"moreexperience"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDeparmentsAvgSalary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:9515/api/departments/avgsalary",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "9515",
+					"path": [
+						"api",
+						"departments",
+						"avgsalary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDataEmployeesByCountries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:9515/api/countries",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "9515",
+					"path": [
+						"api",
+						"countries"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
