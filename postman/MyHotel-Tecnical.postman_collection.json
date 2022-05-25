@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "00385c28-1ecd-412b-98b3-41939489a70c",
+		"_postman_id": "c2487c32-8780-4def-95e1-8ea1095d0226",
 		"name": "MyHotel-Tecnical",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,14 +11,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:9515/api/employees/salary/{segment}",
+					"raw": "{{urlArrendamiento}}/api/employees/salary/{segment}",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"{{urlArrendamiento}}"
 					],
-					"port": "9515",
 					"path": [
 						"api",
 						"employees",
@@ -35,14 +31,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:9515/api/departments/salary",
+					"raw": "{{urlArrendamiento}}/api/departments/salary",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"{{urlArrendamiento}}"
 					],
-					"port": "9515",
 					"path": [
 						"api",
 						"departments",
@@ -58,14 +50,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:9515/api/departments/employees/maxsalary",
+					"raw": "{{urlArrendamiento}}/api/departments/employees/maxsalary",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"{{urlArrendamiento}}"
 					],
-					"port": "9515",
 					"path": [
 						"api",
 						"departments",
@@ -82,14 +70,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:9515/api/employees/moreexperience",
+					"raw": "{{urlArrendamiento}}/api/employees/moreexperience",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"{{urlArrendamiento}}"
 					],
-					"port": "9515",
 					"path": [
 						"api",
 						"employees",
@@ -105,14 +89,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:9515/api/departments/avgsalary",
+					"raw": "{{urlArrendamiento}}/api/departments/avgsalary",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"{{urlArrendamiento}}"
 					],
-					"port": "9515",
 					"path": [
 						"api",
 						"departments",
@@ -128,14 +108,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:9515/api/countries",
+					"raw": "{{urlArrendamiento}}/api/countries",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"{{urlArrendamiento}}"
 					],
-					"port": "9515",
 					"path": [
 						"api",
 						"countries"
