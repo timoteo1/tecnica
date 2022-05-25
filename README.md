@@ -13,6 +13,8 @@ Solución planteada (EJERCICIOS 2 y 3):
 - Docker & Docker-Compose instalados
 
 ##### IMPORTANTE!
+Los scripts correspondientes a las querys del ejercicio 2, se encuentra dentro de la carpeta `query`. Archivo `querysExecise2.txt`.
+
 Dentro de la carpeta `myhotel-docker` se presenta un `.yaml` que permite levantar una base de datos `MariaDB` con las tablas creadas para esta aplicación. 
 Hay un archivo `how-to.md` donde se detalla los pasos a seguir para poder levantar el docker.
 
