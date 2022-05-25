@@ -11,9 +11,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{urlArrendamiento}}/api/employees/salary/{segment}",
+					"raw": "{{urlTecnica}}/api/employees/salary/{segment}",
 					"host": [
-						"{{urlArrendamiento}}"
+						"{{urlTecnica}}"
 					],
 					"path": [
 						"api",
@@ -31,9 +31,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{urlArrendamiento}}/api/departments/salary",
+					"raw": "{{urlTecnica}}/api/departments/salary",
 					"host": [
-						"{{urlArrendamiento}}"
+						"{{urlTecnica}}"
 					],
 					"path": [
 						"api",
@@ -50,9 +50,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{urlArrendamiento}}/api/departments/employees/maxsalary",
+					"raw": "{{urlTecnica}}/api/departments/employees/maxsalary",
 					"host": [
-						"{{urlArrendamiento}}"
+						"{{urlTecnica}}"
 					],
 					"path": [
 						"api",
@@ -70,9 +70,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{urlArrendamiento}}/api/employees/moreexperience",
+					"raw": "{{urlTecnica}}/api/employees/moreexperience",
 					"host": [
-						"{{urlArrendamiento}}"
+						"{{urlTecnica}}"
 					],
 					"path": [
 						"api",
@@ -89,9 +89,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{urlArrendamiento}}/api/departments/avgsalary",
+					"raw": "{{urlTecnica}}/api/departments/avgsalary",
 					"host": [
-						"{{urlArrendamiento}}"
+						"{{urlTecnica}}"
 					],
 					"path": [
 						"api",
@@ -108,9 +108,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{urlArrendamiento}}/api/countries",
+					"raw": "{{urlTecnica}}/api/countries",
 					"host": [
-						"{{urlArrendamiento}}"
+						"{{urlTecnica}}"
 					],
 					"path": [
 						"api",

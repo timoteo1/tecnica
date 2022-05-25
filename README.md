@@ -1,64 +1,132 @@
-# tecnica: ejercicio 3 de PRUEBA TECNICA BACKEND ENGINEER
+# Técnica - Prueba técnica Backend Engineer
+
+
+## Ejercicio 3: de PRUEBA TÉCNICA BACKEND ENGINEER
 
 Solución planteada (EJERCICIOS 2 y 3):
 
-1) Descripción de ambiente:
-Java versión 8
-Base de dato: MariaDB
-API de prueba: POSTMAN
+ Descripción de ambiente:
 
-2) IMPORTANTE
-Dentro de la carpeta myhotel-docker se presenta un yaml que permite levantar una base de datos MariaDB con las tablas creadas para esta aplicación. Hay un archivo how-to.md donde se detalla los pasos a seguir para poder levantar el docker.
+- **Descripción de ambiente:** Java versión 8 
+- **Base de datos:** MariaDB 
+- **APIs de prueba:** POSTMAN
+- Docker & Docker-Compose instalados
 
-En caso de no poder levantar el docker en el directorio "dump" del proyecto esta el dump de la base de datos implementada para la solución del ejercicio.
+##### IMPORTANTE!
+Dentro de la carpeta `myhotel-docker` se presenta un `.yaml` que permite levantar una base de datos `MariaDB` con las tablas creadas para esta aplicación. 
+Hay un archivo `how-to.md` donde se detalla los pasos a seguir para poder levantar el docker.
 
-En el directorio query existe un archivo llamado querysExercise2.txt, que contiene las querys que se realizaron para resolver el ejercicio 2 de PRUEBA TECNICA BACKEND ENGINEER.
+En caso de no poder levantar el docker en el directorio `"dump"` del proyecto esta el dump de la base de datos implementada para la solución del ejercicio.
 
-En el directorio postman dentro del proyecto se encuentra un json con una collection de apis que se puede importar en POSTMAN y poder probar las apis del proyecto. 
+En el directorio `diagrama-bd` del proyecto se encuentra el diagrama de la base de datos diseñada para la aplicación.
 
-3) Ejecución de aplicación:
-Ubicarse dentro del proyecto y correr los siguientes comandos:
-mvn test
-mvn spring-boot:run
+En el directorio `postman` dentro del proyecto se encuentra un `.json` con una collection de apis que se puede importar en POSTMAN y poder probar las apis del proyecto.
 
-4) DETALLE APIS:
-* Obtener la cantidad de empleados por rango salarial
+##### Ejecución de aplicación
 
-GET: 0.0.0.0:9515/api/employees/salary/{segment}
+- Ubicarse dentro la carpeta `my-hotel-docker` y ejecutar: `docker compose up`
+- Ubicarse dentro la carpeta `proyecto` y ejecutar:
+	- `mvn test`
+	- `mvn spring-boot:run`
 
-RequestParams: el parametro segment es de tipo String y los posibles valores son A, B y C:
+##### Detalle APIs
 
-SEGMENTO A: menor a USD 3.500
-SEGMENTO B: mayor o igual a USD 3.500 y menor que USD 8.000
-SEGMENTO C: mayor o igual a USD 8.000.
+* Obtener el numero de empleados por rango salarial
+
+GET -> URL {{urlTecnica}}/api/employees/salary/{segment}
+
+RequestParams: 
+
+`{segment}` es de tipo String. Los posibles valores son A, B y C:
+
+- SEGMENTO A: menor a USD 3.500
+- SEGMENTO B: mayor o igual a USD 3.500 y menor que USD 8.000
+- SEGMENTO C: mayor o igual a USD 8.000.
 
 La api devolvera un json con el numero de empleados que se encuentran en el rango salarial.
-
+```json
+{
+    countEmployees
+}
+```
 * Obtener la cantidad de empleados por rango salarial, agrupados por departamento
-GET: 0.0.0.0:9515/api/departments/salary
 
-La api devolvera un json con los valores DEPARTMENT_ID, SALARY_GROUP, CANTIDAD
+GET -> URL {{urlTecnica}}/api/departments/salary
 
+La api devolvera estructura json con los valores: 
+
+```json
+{ 
+	DEPARTMENT_ID, 
+    SALARY_GROUP, 
+    CANTIDAD
+}
+```
 * Información del empleado con mayor sueldo de cada departamento.
-GET: 0.0.0.0:9515/api/departments/employees/maxsalary
 
-La api devolvera un json con los valores MAX_SALARY, EMPLOYEE_ID, JOB_ID, DEPARTMENT_ID
+GET -> URL {{urlTecnica}}/api/departments/employees/maxsalary
+
+La api devolvera una estructura json con los valores: 
+
+```json
+{ 
+	MAX_SALARY, 
+    EMPLOYEE_ID, 
+    JOB_ID, 
+    DEPARTMENT_ID
+}
+```
+
 
 * Información de los gerentes que hayan sido contratados hace más de 15 años.
 
-GET: 0.0.0.0:9515/api/employees/moreexperience
+GET -> URL {{urlTecnica}}/api/employees/moreexperience
 
-La api devolvera un json con los datos de los empleados
-
+La api devolvera una estructura json con la lista de empleados.
+```json
+    {
+        email,
+        salary,
+        EMPLOYEE_ID,
+        FIRST_NAME,
+        LAST_NAME,
+        PHONE_NUMBER,
+        HIRE_DATE,
+        JOB_ID,
+        COMMISSION_PCT,
+        MANAGER_ID,
+        DEPARTMENT_ID
+    }
+]
+```
 * Salario promedio de todos los departamentos que tengan más de 10 empleados.
 
-GET: 0.0.0.0:9515/api/departments/avgsalary
+GET -> URL {{urlTecnica}}/api/departments/avgsalary
 
-La api devolvera un json con los valores AVG_SALARY, DEPARTMENT_ID
-
+La api devolvera una estructura json con los valores: 
+```json
+[
+    {
+        AVG_SALARY: 3475.555556,
+        DEPARTMENT_ID: 50
+    }
+]
+```
 * Obtener la siguiente información agrupada por país: cantidad empleados, salario promedio, salario más alto, salario más bajo, promedio años antigüedad
 
-GET: 0.0.0.0:9515/api/countries
+GET -> URL {{urlTecnica}}/api/countries
 
-La api devolvera un json con los valores COUNTRY_ID, COUNTRY_NAME, REGION_ID, ANTIQUITY_AVG_YEARS, MAX_SALARY, EMPLOYEE_QUANTITY
-
+La api devolvera una estructura json con los valores: 
+```json
+[
+    {
+        COUNTRY_ID: US,
+        COUNTRY_NAME,
+        REGION_ID,
+        ANTIQUITY_AVG_YEARS,
+        MAX_SALARY,
+        MIN_SALARY,
+        EMPLOYEE_QUANTITY
+    }
+]
+```
